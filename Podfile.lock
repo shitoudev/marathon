@@ -1,0 +1,35 @@
+PODS:
+  - BubbleTransition (1.0.1)
+  - Crashlytics (3.4.0):
+    - Fabric (~> 1.6.0)
+  - Fabric (1.6.0):
+    - Fabric/Base (= 1.6.0)
+  - Fabric/Base (1.6.0)
+  - FlurrySDK (6.6.0):
+    - FlurrySDK/FlurrySDK (= 6.6.0)
+  - FlurrySDK/FlurrySDK (6.6.0)
+  - FontAwesome.swift (0.6.2)
+  - Realm (0.96.2):
+    - Realm/Headers (= 0.96.2)
+  - Realm/Headers (0.96.2)
+  - RealmSwift (0.96.2):
+    - Realm (= 0.96.2)
+
+DEPENDENCIES:
+  - BubbleTransition (~> 1.0.0)
+  - Crashlytics
+  - Fabric
+  - FlurrySDK (~> 6.6.0)
+  - FontAwesome.swift (~> 0.6.2)
+  - RealmSwift (~> 0.96.2)
+
+SPEC CHECKSUMS:
+  BubbleTransition: 76d5e306dbda0f622260ea7d082c971d976422ab
+  Crashlytics: 1ee87895c37472eb3f01f409ea1654a464d2f8d4
+  Fabric: d737eda3a26ac940a5430230eedb35f16b226131
+  FlurrySDK: b79d7125293904a572d7539e64cd9d887f46176b
+  FontAwesome.swift: d40ac0a660f079c77945bab632ca20bf46ddc1ac
+  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
+  RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
+
+COCOAPODS: 0.39.0
