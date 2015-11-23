@@ -96,7 +96,7 @@ class RunningViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        title = "Running"
+        title = "跑跑跑"
         setNeedsStatusBarAppearanceUpdate()
         configureUI()
         self.seconds = 0
@@ -127,14 +127,14 @@ class RunningViewController: UIViewController {
                 let annotation = RunAnnotation()
                 annotation.title = "起点"
                 annotation.coordinate = CLLocation(latitude: firstLocation.latitude, longitude: firstLocation.longitude).locationMarsFromEarth().coordinate
-                annotation.idString = "start"
+                annotation.idString = "起点"
                 mapView.addAnnotation(annotation)
                 // 终点
                 let lastLocation = run.locations.last!
                 let annotation2 = RunAnnotation()
                 annotation2.title = "终点"
                 annotation2.coordinate = CLLocation(latitude: lastLocation.latitude, longitude: lastLocation.longitude).locationMarsFromEarth().coordinate
-                annotation2.idString = "end"
+                annotation2.idString = "终点"
                 mapView.addAnnotation(annotation2)
                 
                 let locationArr = run.locations.map {CLLocation(latitude: $0.latitude, longitude: $0.longitude).locationMarsFromEarth()!}
@@ -191,7 +191,7 @@ class RunningViewController: UIViewController {
         super.viewDidAppear(animated)
         
         for annotation in mapView.annotations {
-            if (annotation as! RunAnnotation).idString == "start" {
+            if (annotation as! RunAnnotation).idString == "起点" {
                 mapView.selectAnnotation(annotation, animated: true)
                 break
             }
@@ -264,19 +264,19 @@ extension RunningViewController {
         
         if isRunning && !isPause {
             isPause = true
-            leftButton.setTitle("Resume", forState: .Normal)
+            leftButton.setTitle("继续", forState: .Normal)
             // 暂停
             timer!.fireDate = NSDate.distantFuture()
             
         } else if isRunning && isPause {
             isPause = false
-            leftButton.setTitle("Pause", forState: .Normal)
+            leftButton.setTitle("暂停", forState: .Normal)
             
             timer!.fireDate = NSDate.distantPast()
         } else {
             isRunning = true
-            leftButton.setTitle("Pause", forState: .Normal)
-            rightButton.setTitle("Stop", forState: .Normal)
+            leftButton.setTitle("暂停", forState: .Normal)
+            rightButton.setTitle("结束", forState: .Normal)
             rightButton.backgroundColor = UIColor(hex: "#f2546e")
             self.beginTime = NSDate()
             
@@ -285,7 +285,7 @@ extension RunningViewController {
                 let annotation = RunAnnotation()
                 annotation.title = "起点"
                 annotation.coordinate = CLLocation(latitude: firstLocation.latitude, longitude: firstLocation.longitude).locationMarsFromEarth().coordinate
-                annotation.idString = "start"
+                annotation.idString = "起点"
                 mapView.addAnnotation(annotation)
             }
             // 刷新
@@ -302,10 +302,10 @@ extension RunningViewController {
             isRunning = false
             isPause = false
             isStop = true
-            rightButton.setTitle("Cancel", forState: .Normal)
+            rightButton.setTitle("取消", forState: .Normal)
             rightButton.backgroundColor = appNormalColor
             
-            leftButton.setTitle("Save", forState: .Normal)
+            leftButton.setTitle("保存", forState: .Normal)
             timer?.invalidate()
             self.timer = nil
         } else {
@@ -329,13 +329,13 @@ extension RunningViewController {
         leftButton.backgroundColor = appNormalColor
         leftButton.layer.cornerRadius = leftButton.width/2
         leftButton.addTarget(self, action: "leftButtonTapped:", forControlEvents: .TouchUpInside)
-        leftButton.setTitle("Start", forState: .Normal)
+        leftButton.setTitle("开始", forState: .Normal)
         leftButton.titleLabel?.font = UIFont.systemFontOfSize(14)
         
         rightButton.backgroundColor = appNormalColor
         rightButton.layer.cornerRadius = rightButton.width/2
         rightButton.addTarget(self, action: "rightButtonTapped:", forControlEvents: .TouchUpInside)
-        rightButton.setTitle("Cancel", forState: .Normal)
+        rightButton.setTitle("取消", forState: .Normal)
         rightButton.titleLabel?.font = leftButton.titleLabel?.font
     }
 }
@@ -405,7 +405,7 @@ extension RunningViewController: MKMapViewDelegate {
             if annotation.isKindOfClass(MKUserLocation) && isRunning {
                 imageString = "PinRed"
             } else if annotation.isKindOfClass(RunAnnotation) {
-                imageString = (annotation as! RunAnnotation).idString == "start" ? "PinGreen" : "PinRed"
+                imageString = (annotation as! RunAnnotation).idString == "起点" ? "PinGreen" : "PinRed"
             }
             let image = UIImage(named: imageString)
             annotationView?.annotation = annotation

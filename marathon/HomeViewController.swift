@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        title = "我的马拉松"
         navigationController?.navigationBar.barStyle = .Black
         configureUI()
         self.realm = try! Realm()
