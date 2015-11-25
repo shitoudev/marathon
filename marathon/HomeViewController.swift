@@ -33,6 +33,10 @@ class HomeViewController: UIViewController {
         configureUI()
         self.realm = try! Realm()
         reloadTableViewData()
+        
+        let barButton = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "settingTapped:")
+        barButton.tintColor = UIColor.whiteColor()
+        navigationItem.rightBarButtonItem = barButton
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,6 +49,18 @@ class HomeViewController: UIViewController {
                 performSegueWithIdentifier("marathon.run", sender: nil)
                 appDelegate.launchedShortcutItem = nil
             }
+        }
+        // 提醒未设置个人信息
+        guard let _ = NSUserDefaults.standardUserDefaults().valueForKey("weight") else {
+            let alertController = UIAlertController(title: "先来设置个人基本信息", message: "性别、身高、体重什么的", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "去设置", style: .Default) { (alert) -> Void in
+                self.settingTapped(nil)
+            }
+            let cancelAction = UIAlertAction(title: "取消", style: .Cancel) { (action) -> Void in}
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true) { () -> Void in}
+            return
         }
     }
 
@@ -106,6 +122,12 @@ class HomeViewController: UIViewController {
         totalTimeLabel.attributedText = attributedTimeStr
     }
     
+    func settingTapped(sender: UIBarButtonItem?) {
+        let viewController = SettingTableViewController()
+        let nav = UINavigationController(rootViewController: viewController)
+        nav.navigationBar.barStyle = .Black
+        navigationController?.presentViewController(nav, animated: true, completion: {})
+    }
 }
 
 // MARK: Configure UI

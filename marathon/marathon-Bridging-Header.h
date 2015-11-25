@@ -3,3 +3,4 @@
 //
 
 #import "CLLocation+Sino.h"
+#import <Bohr/Bohr.h>

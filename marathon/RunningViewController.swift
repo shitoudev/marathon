@@ -226,6 +226,14 @@ class RunningViewController: UIViewController {
         let count = UInt32(range.endIndex - range.startIndex)
         return  Int(arc4random_uniform(count)) + range.startIndex
     }
+    
+    func getCalByMeter(meter: Double) -> Double {
+        var weightDefault = 0
+        if let weight = NSUserDefaults.standardUserDefaults().valueForKey("weight") as? Int {
+            weightDefault = weight
+        }
+        return (Double(weightDefault) * meter / 1000 * 1.036)
+    }
 }
 
 // MARK: Button Tapped

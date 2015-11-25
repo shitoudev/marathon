@@ -10,6 +10,7 @@
 import UIKit
 import marathonKit
 import RealmSwift
+import Bohr
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBar.translucent = false
         
         application.statusBarStyle = .LightContent
+        setupAppearance()
 
         // realm config
         var realmConfig = Realm.Configuration(
@@ -116,6 +118,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return false
+    }
+    
+    func setupAppearance() {
+        BOTableViewCell.appearance().selectedColor = UIColor(hex: "#f3a919")
+        BOTableViewCell.appearance().secondaryColor = UIColor(hex: "#f3a919")
     }
 
 }

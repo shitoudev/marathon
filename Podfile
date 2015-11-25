@@ -10,7 +10,8 @@ target 'marathon' do
     pod 'RealmSwift', '~> 0.96.2'
     pod 'BubbleTransition', '~> 1.0.0'
     pod 'FontAwesome.swift', '~> 0.6.2'
-
+    pod 'Bohr', '~> 3.0.0'
+    
 #    pod 'SwiftDate', '~> 1.1'
 
 	pod 'Fabric'

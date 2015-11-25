@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		75EAEAE7D9159EBDC78570E7 /* Pods_marathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FFA6C466B1A6AE952714AB /* Pods_marathon.framework */; };
 		9728BA8B1BA2B33300786A0A /* RunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728BA8A1BA2B33300786A0A /* RunningViewController.swift */; };
+		972F0E871C0564840060A1EB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972F0E861C0564840060A1EB /* SettingTableViewController.swift */; };
+		972F0E891C056DC60060A1EB /* GenderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972F0E881C056DC60060A1EB /* GenderTableViewController.swift */; };
 		974B50641BA80E6B004E1E67 /* CLLocation+Sino.m in Sources */ = {isa = PBXBuildFile; fileRef = 974B50631BA80E6B004E1E67 /* CLLocation+Sino.m */; };
 		974B6C6F1BA189A100E7E008 /* RunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B6C6E1BA189A100E7E008 /* RunModel.swift */; };
 		974B6C711BA18B6000E7E008 /* RunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B6C701BA18B6000E7E008 /* RunCell.swift */; };
@@ -73,6 +75,8 @@
 		0B81495C851D7731A220BAC0 /* Pods-marathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-marathon/Pods-marathon.release.xcconfig"; sourceTree = "<group>"; };
 		391805917F482FA147BF6949 /* Pods-marathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marathon/Pods-marathon.debug.xcconfig"; sourceTree = "<group>"; };
 		9728BA8A1BA2B33300786A0A /* RunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningViewController.swift; sourceTree = "<group>"; };
+		972F0E861C0564840060A1EB /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		972F0E881C056DC60060A1EB /* GenderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderTableViewController.swift; sourceTree = "<group>"; };
 		974B50611BA80E6A004E1E67 /* marathon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marathon-Bridging-Header.h"; sourceTree = "<group>"; };
 		974B50621BA80E6B004E1E67 /* CLLocation+Sino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Sino.h"; sourceTree = "<group>"; };
 		974B50631BA80E6B004E1E67 /* CLLocation+Sino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Sino.m"; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				97EE47401B9EE131009A6397 /* LaunchScreen.storyboard */,
 				97EE47431B9EE131009A6397 /* Info.plist */,
 				974B50611BA80E6A004E1E67 /* marathon-Bridging-Header.h */,
+				972F0E861C0564840060A1EB /* SettingTableViewController.swift */,
+				972F0E881C056DC60060A1EB /* GenderTableViewController.swift */,
 			);
 			path = marathon;
 			sourceTree = "<group>";
@@ -489,9 +495,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				97B438831BBA7CA4008A6DD6 /* LocationModel.swift in Sources */,
+				972F0E891C056DC60060A1EB /* GenderTableViewController.swift in Sources */,
 				974B50641BA80E6B004E1E67 /* CLLocation+Sino.m in Sources */,
 				97EE473A1B9EE131009A6397 /* HomeViewController.swift in Sources */,
 				97B438811BB947F9008A6DD6 /* SwiftDate.swift in Sources */,
+				972F0E871C0564840060A1EB /* SettingTableViewController.swift in Sources */,
 				9728BA8B1BA2B33300786A0A /* RunningViewController.swift in Sources */,
 				974B6C711BA18B6000E7E008 /* RunCell.swift in Sources */,
 				974B6C6F1BA189A100E7E008 /* RunModel.swift in Sources */,

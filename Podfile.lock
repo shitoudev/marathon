@@ -1,4 +1,5 @@
 PODS:
+  - Bohr (3.0.0)
   - BubbleTransition (1.0.1)
   - Crashlytics (3.4.0):
     - Fabric (~> 1.6.0)
@@ -16,6 +17,7 @@ PODS:
     - Realm (= 0.96.2)
 
 DEPENDENCIES:
+  - Bohr (~> 3.0.0)
   - BubbleTransition (~> 1.0.0)
   - Crashlytics
   - Fabric
@@ -24,6 +26,7 @@ DEPENDENCIES:
   - RealmSwift (~> 0.96.2)
 
 SPEC CHECKSUMS:
+  Bohr: 17b150766e54e1fb8ff417d85b830c7caafa8b4a
   BubbleTransition: 76d5e306dbda0f622260ea7d082c971d976422ab
   Crashlytics: 1ee87895c37472eb3f01f409ea1654a464d2f8d4
   Fabric: d737eda3a26ac940a5430230eedb35f16b226131

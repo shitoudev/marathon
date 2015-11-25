@@ -93,8 +93,3 @@ public func mapRegion(locations: [CLLocation]) -> MKCoordinateRegion {
     
     return region
 }
-
-public func getCalByMeter(meter: Double) -> Double {
-    // 70体重
-    return (70 * meter / 1000 * 1.036)
-}
