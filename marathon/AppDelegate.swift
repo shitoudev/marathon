@@ -20,17 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        print("didFinishLaunchingWithOptions")
-        let navigationBar = UINavigationBar.appearance()
-        navigationBar.barTintColor = appNormalColor
-        navigationBar.tintColor = UIColor.whiteColor()
-        navigationBar.translucent = false
-        
-        application.statusBarStyle = .LightContent
+
         setupAppearance()
 
         // realm config
         var realmConfig = Realm.Configuration(
+            // version=1 RunModel中新增weight
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    migration.enumerate(RunModel.className()) { (oldObject, newObject) -> Void in
+                        newObject!["weight"] = 65 // 设置一个默认值
+                    }
+                }
+            }
+            
 //            // 设置新的架构版本。这个版本号必须高于之前所用的版本号（如果您之前从未设置过架构版本，那么这个版本号设置为 0）
 //            schemaVersion: 5,
 //            // 设置闭包，这个闭包将会在打开低于上面所设置版本号的 Realm 数据库的时候被自动调用
@@ -121,6 +125,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupAppearance() {
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.barTintColor = appNormalColor
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.translucent = false
+        
         BOTableViewCell.appearance().selectedColor = UIColor(hex: "#f3a919")
         BOTableViewCell.appearance().secondaryColor = UIColor(hex: "#f3a919")
     }

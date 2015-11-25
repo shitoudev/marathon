@@ -11,7 +11,7 @@ import RealmSwift
 
 class RunModel: Object {
     dynamic var run_id = 0
-    dynamic var distance: Double = 0, time = NSDate(), total_time = 0, cal = 0
+    dynamic var distance: Double = 0, time = NSDate(), total_time = 0, cal = 0, weight = 0
     let locations = List<LocationModel>()
     
     /**

@@ -97,7 +97,6 @@ class RunningViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         title = "跑跑跑"
-        setNeedsStatusBarAppearanceUpdate()
         configureUI()
         self.seconds = 0
         self.distance = 0.0
@@ -110,7 +109,7 @@ class RunningViewController: UIViewController {
         if let run = runModel {
             leftButton.hidden = true; rightButton.hidden = true
             self.avgPace = (stringAvgPace(run.distance, seconds: run.total_time) as NSString).doubleValue
-            self.cal = Int(getCalByMeter(run.distance))
+            self.cal = Int(getCalByMeter(run.distance, weight: run.weight))
             self.distance = run.distance
             self.seconds = run.total_time
             
@@ -177,14 +176,14 @@ class RunningViewController: UIViewController {
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -210,7 +209,7 @@ class RunningViewController: UIViewController {
         self.seconds++
 //        self.distance += Double(randomInRange(1...4))
         self.avgPace = (stringAvgPace(distance, seconds: seconds) as NSString).doubleValue
-        self.cal = Int(getCalByMeter(distance))
+        self.cal = Int(getCalByMeter(distance, weight: getWeightDefault()))
 
         if locations.count > 0 {
             var coordinate2dS = locations.map {$0.locationMarsFromEarth().coordinate}
@@ -227,12 +226,15 @@ class RunningViewController: UIViewController {
         return  Int(arc4random_uniform(count)) + range.startIndex
     }
     
-    func getCalByMeter(meter: Double) -> Double {
-        var weightDefault = 0
+    func getCalByMeter(meter: Double, weight: Int) -> Double {
+        return (Double(weight) * meter / 1000 * 1.036)
+    }
+    func getWeightDefault() -> Int {
+        var weightDefault = 65
         if let weight = NSUserDefaults.standardUserDefaults().valueForKey("weight") as? Int {
             weightDefault = weight
         }
-        return (Double(weightDefault) * meter / 1000 * 1.036)
+        return weightDefault
     }
 }
 
@@ -248,6 +250,7 @@ extension RunningViewController {
             run.time = beginTime!
             run.total_time = seconds
             run.cal = cal
+            run.weight = getWeightDefault()
             
             for location in locations {
                 let locationModel = LocationModel()

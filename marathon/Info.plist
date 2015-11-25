@@ -24,6 +24,17 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>如果不提供位置服务，将无法记录你的跑步线路</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>running</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>开始跑步</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>marathon.run</string>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -44,16 +55,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>marathon.run</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>开始跑步</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>running</string>
-		</dict>
-	</array>
 </dict>
 </plist>
